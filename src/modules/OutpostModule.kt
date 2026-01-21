@@ -1,5 +1,7 @@
 package modules
 
+import resources.ResourceManager
+
 abstract class OutpostModule(
     val name: String,
     var level: Int = 1
@@ -9,6 +11,6 @@ abstract class OutpostModule(
         println("$name улучшен до уровня $level")
     }
 
-    abstract fun performAction(manager: ResourceManager)
+    abstract fun performAction(manager: ResourceManager) : ModuleResult
 
 }

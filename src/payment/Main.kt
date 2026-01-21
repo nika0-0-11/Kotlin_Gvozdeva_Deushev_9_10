@@ -1,6 +1,5 @@
 package payment
 
-import example.Car
 
 fun main() {
     val processor = PaymentProcessor()
