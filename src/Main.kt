@@ -15,7 +15,7 @@ fun main() {
     manager.add(gas)
     manager.printAll()*/
 
-    val manager = ResourceManager()
+    /*val manager = ResourceManager()
     val generator = EnergyGenerator()
     val lab = ResearchLab()
 
@@ -24,7 +24,7 @@ fun main() {
     generator.performAction(manager)
     lab.performAction(manager)
     println()
-    manager.printAll()
+    manager.printAll()*/
 
 
 }
