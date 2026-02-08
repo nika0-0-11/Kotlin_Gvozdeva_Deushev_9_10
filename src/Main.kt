@@ -21,7 +21,37 @@ fun handleModuleResult(result: ModuleResult) {
     }
 }
 
+object SystemLogger {
+    init {
+        println("SystemLogger инициализирован")
+    }
+
+    fun log(message: String) {
+        println("[LOG] $message")
+    }
+}
+
+val logger by lazy {
+    SystemLogger
+}
+
 fun main() {
+    val manager = ResourceManager()
+    val generator = EnergyGenerator()
+    val lab = ResearchLab()
+
+    logger.log("Запуск базы")
+
+    val loadedResource = FileStorage.load()
+    loadedResource.forEach { manager.add(it) }
+
+    if (loadedResource.isEmpty()) {
+        manager.add(OutpostResource(1, "Minerals", 300))
+        manager.add(OutpostResource(2, "Gas", 100))
+    }
+
+    FileStorage.save(manager.getAll())
+
     /*val manager = resources.ResourceManager()
     val minerals = resources.OutpostResource(1, "Minerals", 300)
     val gas = resources.OutpostResource(2, "Gas",100)
@@ -31,22 +61,20 @@ fun main() {
 
     manager.add(minerals)
     manager.add(gas)
-    manager.printAll()*/
+    manager.printAll()
 
-    val manager = ResourceManager()
-    val generator = EnergyGenerator()
-    val lab = ResearchLab()
 
-    /*manager.add(OutpostResource(1, "Minerals", 120))
+
+    manager.add(OutpostResource(1, "Minerals", 120))
     manager.add(OutpostResource(2, "Gas", 40))
     generator.performAction(manager)
     lab.performAction(manager)
     println()
-    manager.printAll()*/
+    manager.printAll()
 
     val generatorResult = generator.performAction(manager)
     val labResult = lab.performAction(manager)
     handleModuleResult(generatorResult)
-    handleModuleResult(labResult)
+    handleModuleResult(labResult)*/
 
 }
