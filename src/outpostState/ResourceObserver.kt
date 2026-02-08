@@ -1,6 +1,6 @@
 package outpostState
 
-class ResourceObserver {
+class ResourceObserver() {
     fun observeResource(resource: ObservableResource) {
         println("Наблюдатель подключен к ресурсу: ${resource.name}")
     }

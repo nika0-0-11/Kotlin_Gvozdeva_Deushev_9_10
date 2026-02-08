@@ -1,5 +1,4 @@
 package outpostState
-
 import kotlin.properties.Delegates
 
 class ObservableResource(val name: String, initialAmount: Int) {
